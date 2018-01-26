@@ -1,0 +1,369 @@
+report({
+  "testSuite": "Visual Regression Test",
+  "tests":
+   {  
+      "pair":{  
+         "reference":"./source/Change received - Tax Credits Service.png",
+         "test":"./destination/Change received - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Change received - Tax Credits Service.png",
+         "label":"Change received - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":4.724751825416359,
+            "misMatchPercentage":"4.72",
+            "diffBounds":{  
+               "top":148,
+               "left":0,
+               "bottom":1351,
+               "right":2549
+            },
+            "analysisTime":84
+         },
+         "diffImage":"./output/Change received - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/People.jpg",
+         "test":"./destination/People.jpg",
+         "selector":"",
+         "fileName":"People.jpg",
+         "label":"People.jpg",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":0,
+            "misMatchPercentage":"0.00",
+            "diffBounds":{  
+               "top":500,
+               "left":500,
+               "bottom":0,
+               "right":0
+            },
+            "analysisTime":19
+         },
+         "diffImage":"./output/People.png"
+      },
+      "status":"pass"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/How many hours a week did you normally work%3F - Tax Credits Service.png",
+         "test":"./destination/How many hours a week did you normally work%3F - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"How many hours a week did you normally work? - Tax Credits Service.png",
+         "label":"How many hours a week did you normally work? - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":2.0879481499712855,
+            "misMatchPercentage":"2.09",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1433,
+               "right":2234
+            },
+            "analysisTime":310
+         },
+         "diffImage":"./output/How many hours a week did you normally work%3F - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/People1.jpg",
+         "test":"./destination/People1.jpg",
+         "selector":"",
+         "fileName":"People1.jpg",
+         "label":"People1.jpg",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":8.66,
+            "misMatchPercentage":"8.66",
+            "diffBounds":{  
+               "top":58,
+               "left":22,
+               "bottom":431,
+               "right":450
+            },
+            "analysisTime":30
+         },
+         "diffImage":"./output/People1.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/People2.jpg",
+         "test":"./destination/People2.jpg",
+         "selector":"",
+         "fileName":"People2.jpg",
+         "label":"People2.jpg",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":8.66,
+            "misMatchPercentage":"8.66",
+            "diffBounds":{  
+               "top":58,
+               "left":22,
+               "bottom":431,
+               "right":450
+            },
+            "analysisTime":32
+         },
+         "diffImage":"./output/People2.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/People3.jpg",
+         "test":"./destination/People3.jpg",
+         "selector":"",
+         "fileName":"People3.jpg",
+         "label":"People3.jpg",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":0,
+            "misMatchPercentage":"0.00",
+            "diffBounds":{  
+               "top":500,
+               "left":500,
+               "bottom":0,
+               "right":0
+            },
+            "analysisTime":19
+         },
+         "diffImage":"./output/People3.png"
+      },
+      "status":"pass"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/Has your benefit ended or do you expect it to end%3F - Tax Credits Service.png",
+         "test":"./destination/Has your benefit ended or do you expect it to end%3F - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Has your benefit ended or do you expect it to end? - Tax Credits Service.png",
+         "label":"Has your benefit ended or do you expect it to end? - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":2.7362922853939344,
+            "misMatchPercentage":"2.74",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1396,
+               "right":2234
+            },
+            "analysisTime":326
+         },
+         "diffImage":"./output/Has your benefit ended or do you expect it to end%3F - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/Has your partner’s benefit ended or is it expected to end%3F - Tax Credits Service.png",
+         "test":"./destination/Has your partner’s benefit ended or is it expected to end%3F - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Has your partner’s benefit ended or is it expected to end? - Tax Credits Service.png",
+         "label":"Has your partner’s benefit ended or is it expected to end? - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":2.7362922853939344,
+            "misMatchPercentage":"2.74",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1396,
+               "right":2234
+            },
+            "analysisTime":319
+         },
+         "diffImage":"./output/Has your partner’s benefit ended or is it expected to end%3F - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/Confirm your answers - Tax Credits Service.png",
+         "test":"./destination/Confirm your answers - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Confirm your answers - Tax Credits Service.png",
+         "label":"Confirm your answers - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":5.1748297645418,
+            "misMatchPercentage":"5.17",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1433,
+               "right":2234
+            },
+            "analysisTime":325
+         },
+         "diffImage":"./output/Confirm your answers - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/Do you still have your job%3F - Tax Credits Service.png",
+         "test":"./destination/Do you still have your job%3F - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Do you still have your job? - Tax Credits Service.png",
+         "label":"Do you still have your job? - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":2.0848305849536466,
+            "misMatchPercentage":"2.08",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1334,
+               "right":2234
+            },
+            "analysisTime":343
+         },
+         "diffImage":"./output/Do you still have your job%3F - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/Estimated earnings - Tax Credits Service.png",
+         "test":"./destination/Estimated earnings - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Estimated earnings - Tax Credits Service.png",
+         "label":"Estimated earnings - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":3.1601443924850274,
+            "misMatchPercentage":"3.16",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1276,
+               "right":2234
+            },
+            "analysisTime":362
+         },
+         "diffImage":"./output/Estimated earnings - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/How many jobs do you have now%3F - Tax Credits Service.png",
+         "test":"./destination/How many jobs do you have now%3F - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"How many jobs do you have now? - Tax Credits Service.png",
+         "label":"How many jobs do you have now? - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":2.316925096398392,
+            "misMatchPercentage":"2.32",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1421,
+               "right":2234
+            },
+            "analysisTime":333
+         },
+         "diffImage":"./output/How many jobs do you have now%3F - Tax Credits Service.png"
+      },
+      "status":"fail"
+   },
+   {  
+      "pair":{  
+         "reference":"./source/Do you expect to make a profit between 6 April 2017 and 5 April 2018%3F - Tax Credits Service.png",
+         "test":"./destination/Do you expect to make a profit between 6 April 2017 and 5 April 2018%3F - Tax Credits Service.png",
+         "selector":"",
+         "fileName":"Do you expect to make a profit between 6 April 2017 and 5 April 2018? - Tax Credits Service.png",
+         "label":"Do you expect to make a profit between 6 April 2017 and 5 April 2018? - Tax Credits Service.png",
+         "misMatchThreshold":0.1,
+         "diff":{  
+            "isSameDimensions":true,
+            "dimensionDifference":{  
+               "width":0,
+               "height":0
+            },
+            "rawMisMatchPercentage":2.7156999480405832,
+            "misMatchPercentage":"2.72",
+            "diffBounds":{  
+               "top":148,
+               "left":315,
+               "bottom":1433,
+               "right":2234
+            },
+            "analysisTime":310
+         },
+         "diffImage":"./output/Do you expect to make a profit between 6 April 2017 and 5 April 2018%3F - Tax Credits Service.png"
+      },
+      "status":"fail"
+    }
+  ]
+})

@@ -1,0 +1,215 @@
+report({
+  "testSuite": "Visual Regression Test",
+  "tests": [
+    {
+      "pair": {
+        "reference": "../source/Change received - Tax Credits Service.png",
+        "test": "../destination/Change received - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Change received - Tax Credits Service.png",
+        "label": "Change received - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "4.72",
+          "analysisTime": 214
+        },
+        "diffImage": "../output/Change received - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/Has your benefit ended or do you expect it to end%3F - Tax Credits Service.png",
+        "test": "../destination/Has your benefit ended or do you expect it to end%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Has your benefit ended or do you expect it to end? - Tax Credits Service.png",
+        "label": "Has your benefit ended or do you expect it to end? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.74",
+          "analysisTime": 370
+        },
+        "diffImage": "../output/Has your benefit ended or do you expect it to end%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/How many self‑employed hours a week do you normally work%3F - Tax Credits Service.png",
+        "test": "../destination/How many self‑employed hours a week do you normally work%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "How many self‑employed hours a week do you normally work? - Tax Credits Service.png",
+        "label": "How many self‑employed hours a week do you normally work? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.01",
+          "analysisTime": 379
+        },
+        "diffImage": "../output/How many self‑employed hours a week do you normally work%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/How many jobs do you have now%3F - Tax Credits Service.png",
+        "test": "../destination/How many jobs do you have now%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "How many jobs do you have now? - Tax Credits Service.png",
+        "label": "How many jobs do you have now? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.32",
+          "analysisTime": 345
+        },
+        "diffImage": "../output/How many jobs do you have now%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/Estimated earnings - Tax Credits Service.png",
+        "test": "../destination/Estimated earnings - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Estimated earnings - Tax Credits Service.png",
+        "label": "Estimated earnings - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "3.16",
+          "analysisTime": 340
+        },
+        "diffImage": "../output/Estimated earnings - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/Confirm your answers - Tax Credits Service.png",
+        "test": "../destination/Confirm your answers - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Confirm your answers - Tax Credits Service.png",
+        "label": "Confirm your answers - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "5.17",
+          "analysisTime": 342
+        },
+        "diffImage": "../output/Confirm your answers - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/How many hours a week did you normally work%3F - Tax Credits Service.png",
+        "test": "../destination/How many hours a week did you normally work%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "How many hours a week did you normally work? - Tax Credits Service.png",
+        "label": "How many hours a week did you normally work? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.09",
+          "analysisTime": 262
+        },
+        "diffImage": "../output/How many hours a week did you normally work%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/Has your partner’s benefit ended or is it expected to end%3F - Tax Credits Service.png",
+        "test": "../destination/Has your partner’s benefit ended or is it expected to end%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Has your partner’s benefit ended or is it expected to end? - Tax Credits Service.png",
+        "label": "Has your partner’s benefit ended or is it expected to end? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.74",
+          "analysisTime": 372
+        },
+        "diffImage": "../output/Has your partner’s benefit ended or is it expected to end%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/Do you expect to make a profit between 6 April 2017 and 5 April 2018%3F - Tax Credits Service.png",
+        "test": "../destination/Do you expect to make a profit between 6 April 2017 and 5 April 2018%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Do you expect to make a profit between 6 April 2017 and 5 April 2018? - Tax Credits Service.png",
+        "label": "Do you expect to make a profit between 6 April 2017 and 5 April 2018? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.72",
+          "analysisTime": 361
+        },
+        "diffImage": "../output/Do you expect to make a profit between 6 April 2017 and 5 April 2018%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../source/Do you still have your job%3F - Tax Credits Service.png",
+        "test": "../destination/Do you still have your job%3F - Tax Credits Service.png",
+        "selector": "",
+        "fileName": "Do you still have your job? - Tax Credits Service.png",
+        "label": "Do you still have your job? - Tax Credits Service.png",
+        "misMatchThreshold": 0.1,
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "2.08",
+          "analysisTime": 384
+        },
+        "diffImage": "../output/Do you still have your job%3F - Tax Credits Service.png.jpg"
+      },
+      "status": "fail"
+    }
+  ]
+})

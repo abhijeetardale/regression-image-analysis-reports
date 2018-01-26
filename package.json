@@ -1,0 +1,42 @@
+{
+  "name": "ImageAnalysisAndReport",
+  "version": "1.0.0",
+  "description": "Image analysis and Reports",
+  "main": "testcompare.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Huddle/Resemble.js.git"
+  },
+  "keywords": [
+    "comparison",
+    "visual",
+    "image",
+    "diff",
+    "compare",
+    "html5"
+  ],
+  "author": "James Cryer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Huddle/Resemble.js/issues"
+  },
+  "homepage": "https://github.com/Huddle/Resemble.js",
+  "scripts": {
+    "test": "jest nodejs-tests",
+    "test-watch": "jest --watch nodejs-tests"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
+    "color-convert": "^1.9.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "from2-string": "^1.1.0",
+    "jsonfile": "^4.0.0",
+    "recursive-readdir": "^2.2.1"
+  }
+}
