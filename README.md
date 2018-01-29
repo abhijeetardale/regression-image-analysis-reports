@@ -42,6 +42,7 @@ npm install canvas-prebuilt
 
 ## Step 1 - clone the project and update config file for source anbd test images directory
 ```$ git clone https://github.com/abhijeetardale/regression-image-analysis-reports```
+
 ```$ cd regression-image-analysis-reports```
 
 update config file (settings.json) for sourceDirectoryPath and testDirectoryPath and both should be absolue path from root directory.
