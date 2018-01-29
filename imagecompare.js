@@ -132,7 +132,7 @@ var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
         });
 
          // ignore files that end in ".css" or  ".html".
-        recursive(sourceFolder, ["*.css", "*.html"], function (err, files) {
+        recursive(sourceFolder, ["*.css", "*.html", "*.xml", "*.xhtml", "*.js"], function (err, files) {
            if (err) {
                throw err;
            }
