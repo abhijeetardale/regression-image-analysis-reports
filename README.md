@@ -2,7 +2,7 @@ imagecompare.js
 ==========
 This will compare the images from source and destination directoty considering both will have same directory struchure and file names.
 To use this project you will need to have a set of image pairs to compare.
-Each pair of images should be named the same then it will check the source file with same name at relavant destination directory path and create result difference image in ./demo/outout directory.
+Each pair of images should be named the same then it will check the source file with same name at relavant destination directory path and create result difference image in ./demo/outout directory. 
 If the destination directory dont have the respective file present it will not return the difference image.
 
 This project depends upon the resemblejs which does analyse and compare images with Javascript and HTML5. [More info & Resemble.js Demo](http://huddle.github.com/Resemble.js/). Compatible with Node.js.
@@ -23,8 +23,19 @@ Canvas relies on some native image manipulation libraries to be install on the s
 *Example commands for installation on Ubuntu*
 
 ``` bash
-npm install canvas
+Install node.js
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+Install npm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source ~/.bashrc
+
 sudo apt-get install libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++
+npm install canvas
+npm install canvas-prebuilt
 ```
 
 ### Prepare reference and test image to compare
@@ -37,13 +48,13 @@ update config file(settings.json)  for sourceDirectoryPath and testDirectoryPath
 
 ```$ npm install```
 
-## Step 3 - Run analysis
+## Step 3 - Run analysis 
 
 ```$ node imagecompare```
 Or
 ```$ npm compare```
 
-## Step 3 - Genearte Report
+## Step 3 - Genearte Report 
 
 ```$ node report```
 Or
