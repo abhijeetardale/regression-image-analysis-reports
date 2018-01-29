@@ -1,226 +1,56 @@
-Resemble.js
+imagecompare.js
 ==========
+This will compare the images from source and destination directoty considering both will have same directory struchure and file names.
+To use this project you will need to have a set of image pairs to compare.
+Each pair of images should be named the same then it will check the source file with same name at relavant destination directory path and create result difference image in ./demo/outout directory. 
+If the destination directory dont have the respective file present it will not return the difference image.
 
-Analyse and compare images with Javascript and HTML5. [More info & Resemble.js Demo](http://huddle.github.com/Resemble.js/). Compatible with Node.js.
+This project depends upon the resemblejs which does analyse and compare images with Javascript and HTML5. [More info & Resemble.js Demo](http://huddle.github.com/Resemble.js/). Compatible with Node.js.
 
 ![Two image diff examples side-by-side, one pink, one yellow.](https://raw.github.com/Huddle/Resemble.js/master/demoassets/readmeimage.jpg "Visual image comparison")
 
-### Get it
 
-`npm install resemblejs`
+### Install node
 
-`bower install resemblejs`
+It is recommeneded to install Node using Node Version Manager
 
-### Example
-
-Retrieve basic analysis on an image:
-
-```javascript
-var api = resemble(fileData).onComplete(function(data){
-	console.log(data);
-	/*
-	{
-	  red: 255,
-	  green: 255,
-	  blue: 255,
-	  brightness: 255
-	}
-	*/
-});
-```
-
-Use resemble to compare two images:
-
-```javascript
-var diff = resemble(file).compareTo(file2).ignoreColors().onComplete(function(data){
-	console.log(data);
-	/*
-	{
-	  misMatchPercentage : 100, // %
-	  isSameDimensions: true, // or false
-	  dimensionDifference: { width: 0, height: -1 }, // defined if dimensions are not the same
-	  getImageDataUrl: function(){}
-	}
-	*/
-});
-```
-
-Scale second image to dimensions of the first one:
-```javascript
-//diff.useOriginalSize();
-diff.scaleToSameSize();
-```
-
-You can also change the comparison method after the first analysis:
-
-```javascript
-// diff.ignoreNothing();
-// diff.ignoreColors();
-// diff.ignoreAlpha();
-diff.ignoreAntialiasing();
-```
-
-
-And change the output display style:
-
-```javascript
-resemble.outputSettings({
-  errorColor: {
-    red: 255,
-    green: 0,
-    blue: 255
-  },
-  errorType: 'movement',
-  transparency: 0.3,
-  largeImageThreshold: 1200,
-  useCrossOrigin: false,
-  outputDiff: true
-})
-// .repaint();
-```
-
-It is possible to narrow down the area of comparison, by specifying a bounding box measured in pixels from the top left:
-
-```javascript
-resemble.outputSettings({
-  boundingBox: {
-    left: 100,
-    top: 200,
-    right: 200,
-    bottom: 600
-  }
-})
-// .repaint();
-```
-
-By default, the comparison algorithm skips pixels when the image width or height is larger than 1200 pixels. This is there to mitigate performance issues.
-
-You can modify this behaviour by setting the `largeImageThreshold` option to a different value. Set it to **0** to switch it off completely.
-
-`useCrossOrigin` is true by default, you might need to set it to false if you're using [Data URIs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).
-
-### Single callback api
-
-The resemble.compare API provides a convenience function that is used as follows:
-
-``` js
-const compare = require('resemblejs').compare;
-
-function getDiff(){
-
-const options = {
-  output: {
-    errorColor: {
-      red: 255,
-      green: 0,
-      blue: 255
-    },
-    errorType: 'movement',
-    transparency: 0.3,
-    largeImageThreshold: 1200,
-    useCrossOrigin: false,
-    outputDiff: true
-  },
-  scaleToSameSize: true,
-  ignore: ['nothing', 'less', 'antialiasing', 'colors', 'alpha'],
-};
-// The parameters can be Node Buffers
-// data is the same as usual with an additional getBuffer() function
-compare(image1, image2, options, function (err, data) {
-	if (err) {
-		console.log('An error!')
-	} else {
-		console.log(data);
-		/*
-		{
-		  misMatchPercentage : 100, // %
-		  isSameDimensions: true, // or false
-		  dimensionDifference: { width: 0, height: -1 }, // defined if dimensions are not the same
-		  getImageDataUrl: function(){}
-		}
-		*/
-
-	}
-});
-```
-
-### Node.js
-
-#### Installation
+https://github.com/creationix/nvm
 
 On Node, Resemble uses the `canvas` package instead of the native canvas support in the browser. To prevent browser users from being forced into installing Canvas, it's included as a peer dependency which means you have to install it alongside Resemble.
 
 Canvas relies on some native image manipulation libraries to be install on the system. Please read the [Canvas installation instructions](https://www.npmjs.com/package/canvas) for OSX/Windows/Linux.
 
-*Example commands for installation on OSX*
+*Example commands for installation on Ubuntu*
 
 ``` bash
-npm install resemblejs
-brew install pkg-config cairo libpng jpeg giflib
 npm install canvas
+sudo apt-get install libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++
 ```
 
-#### Usage
+### Prepare reference and test image to compare
 
-The API under Node is the same as on the `resemble.compare` but promise based:
+## Step 1 - Update config file for source anbd test images directory
 
-``` js
-const compareImages = require('resemblejs/compareImages');
-const fs = require("mz/fs");
+update config file(settings.json)  for sourceDirectoryPath and testDirectoryPath and both should be absolue path from root directory.
 
-async function getDiff(){
+## Step 2 - Install node dependancies
 
-const options = {
-  output: {
-    errorColor: {
-      red: 255,
-      green: 0,
-      blue: 255
-    },
-    errorType: 'movement',
-    transparency: 0.3,
-    largeImageThreshold: 1200,
-    useCrossOrigin: false,
-    outputDiff: true
-  },
-  scaleToSameSize: true,
-  ignore: ['nothing', 'less', 'antialiasing', 'colors', 'alpha'],
-};
-// The parameters can be Node Buffers
-// data is the same as usual with an additional getBuffer() function
-const data = await compareImages(
-	await fs.readFile('./demoassets/People.jpg'),
-	await fs.readFile('./demoassets/People2.jpg'),
-	options,
-);
+```$ npm install```
 
-await fs.writeFile('./output.png', data.getBuffer());
+## Step 3 - Run analysis 
 
-}
+```$ node imagecompare```
+Or
+```$ npm compare```
 
-getDiff();
+## Step 3 - Genearte Report 
 
-```
+```$ node report```
+Or
+```$ npm report```
 
-#### Tests
+report will be genrated upder ./demo/report.html. You can open it in your default browser.
 
-To run the tests on Node (using Jest), type:
+## Additional
 
-``` bash
-npm run test
-```
-
-#### Dockerfile
-
-For convenience I've added a simple Dockerfile to run the NodeJS tests in an Ubuntu container  
-
-``` bash
-docker build -t huddle/resemble .
-docker run huddle/resemble
-```
-
-
-
---------------------------------------
-
-Created by [James Cryer](http://github.com/jamescryer) and the Huddle development team.
+To check the demo file comparision under .${project}/demo, please update the config file(settings.json) for sourceDirectoryPath and testDirectoryPath  and both should be absolue path from root directory.
