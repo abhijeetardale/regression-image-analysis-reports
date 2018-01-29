@@ -44,7 +44,7 @@ npm install canvas-prebuilt
 ```$ git clone https://github.com/abhijeetardale/regression-image-analysis-reports```
 ```$ cd regression-image-analysis-reports```
 
-update config file(settings.json)  for sourceDirectoryPath and testDirectoryPath and both should be absolue path from root directory.
+update config file (settings.json) for sourceDirectoryPath and testDirectoryPath and both should be absolue path from root directory.
 
 ## Step 2 - Install node dependancies
 
