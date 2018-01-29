@@ -23,11 +23,11 @@ Canvas relies on some native image manipulation libraries to be install on the s
 *Example commands for installation on Ubuntu*
 
 ``` bash
-Install node.js
+##Install node.js##
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-Install npm
+##Install npm##
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
