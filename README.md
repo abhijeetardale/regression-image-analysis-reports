@@ -51,14 +51,10 @@ update config file(settings.json)  for sourceDirectoryPath and testDirectoryPath
 ## Step 3 - Run analysis 
 
 ```$ node imagecompare```
-Or
-```$ npm compare```
 
 ## Step 3 - Genearte Report 
 
 ```$ node report```
-Or
-```$ npm report```
 
 report will be genrated upder ./demo/report.html. You can open it in your default browser.
 
