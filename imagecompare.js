@@ -1,7 +1,7 @@
 const fs = require("mz/fs");
 const path = require('path');
 const recursive = require("recursive-readdir");
-const compareImages = require('./compareImages');
+const compareImages = require('resemblejs/compareImages');
 const config = require('./settings.json');
 
 const options = {
