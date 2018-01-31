@@ -6,7 +6,7 @@ function report (report) { // eslint-disable-line no-unused-vars
   tests = report;
 }
 
-var compareApp = angular.module('compareApp', ['ui.bootstrap', 'angular-clipboard', 'revealer']);
+var compareApp = angular.module('compareApp', ['ui.bootstrap', 'angular-clipboard', 'revealer', 'angularUtils.directives.dirPagination']);
 
 var defaultMisMatchThreshold = 1;
 

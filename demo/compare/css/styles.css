@@ -2,7 +2,7 @@ body{font-family: Helvetica Neue,Helvetica,Arial,sans-serif; }
 label span{display: block;}
 td,th{vertical-align: top;padding: 8px;width: 25%;}
 td img{width: 100%;}
-table{width: 100%;border-collapse: collapse;margin-bottom: 50px;}
+table{width: 100%;border-collapse: collapse;margin-bottom: 10px;}
 input{width: 55ex; display: none;}
 th{text-align: left;background: #ddd;padding: 10px;white-space: nowrap;}
 

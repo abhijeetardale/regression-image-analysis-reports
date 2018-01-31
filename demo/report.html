@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>BackstopJS Report</title>
+  <title>Test Report</title>
 
   <link rel="stylesheet" type="text/css" href="compare/bower_components/bootstrap-css-only/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="compare/css/styles.css">
@@ -12,6 +12,7 @@
   <script type="text/javascript" src="compare/bower_components/angular/angular.min.js"></script>
   <script type="text/javascript" src="compare/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script type="text/javascript" src="compare/bower_components/angular-clipboard/angular-clipboard.js"></script>
+  <script type="text/javascript" src="compare/bower_components/angularUtils-pagination/dirPagination.js"></script>
   <script type="text/javascript" src="compare/js/compare.js"></script>
   <script type="text/javascript" src="compare/js/revealer.js"></script>
   <script type="text/javascript" src="config.js"></script>
@@ -29,8 +30,29 @@
   <h1>{{name}} Report</h1>
 
   <h3 class="statContainer">
-    <span class="stat">Passed <span class='label label-success'>{{passedCount}}</span>&nbsp;&nbsp; Failed <span class='label label-danger'>{{testPairs.length-passedCount}}</span></span>
+    <span class="stat">Total {{testPairs.length}} Compared. &nbsp;&nbsp;Passed <span class='label label-success'>{{passedCount}}</span>&nbsp;&nbsp; Failed <span class='label label-danger'>{{testPairs.length-passedCount}}</span></span>
   </h3>
+
+
+  <div>
+    <table class="summaryList">
+      <tr>
+        <td class="asset-heading">
+          <span><label for="statusFilter" class="control-label statusFilter">status filter</label></span>
+          <span><select id="statusFilter" class="form-control" ng-model="statusFilter" ng-options="status for status in detailFilterOptions"></select></span>
+        </td>
+        <td class="asset-heading">
+          <label for="showPairStats" class="control-label showPairStats">show stats
+            <input id="showPairStats" type="checkbox" ng-model="showPairStats" class="showPairStats" />
+          </label>
+        </td>
+        <td class="asset-heading">
+          <dir-pagination-controls></dir-pagination-controls>
+        </td>
+      </tr>
+    </table>
+  </div>
+
 
   <div class="no-print summaryControls">
     <button class="btn btn-default summaryListButton" type="button" class="btn btn-default" ng-click="isSummaryListCollapsed = !isSummaryListCollapsed">
@@ -41,7 +63,7 @@
   </div>
   <div class="summaryBlock">
     <table class="summaryList" ng-class="{'hide' : isSummaryListCollapsed}">
-      <tr ng-repeat="thisTestPair in testPairs">
+      <tr ng-repeat="thisTestPair in testPairs| filter : displayOnStatusFilter">
         <td class="statusInds">
           <div class="indicator failed" ng-if="!thisTestPair.passed"><span class="dot red"></span>failed</div>
           <div class="indicator passed" ng-if="thisTestPair.passed"><span class="dot green"></span>passed</div>
@@ -53,16 +75,13 @@
     </table>
   </div> <!-- end summaryBlock -->
 
+
   <div class='no-print filterGroup form-group'>
-    <label for="statusFilter" class="control-label statusFilter">status filter
-      <select id="statusFilter" class="form-control" ng-model="statusFilter" ng-options="status for status in detailFilterOptions"></select>
-    </label>
-    <label for="showPairStats" class="control-label showPairStats">show stats
-      <input id="showPairStats" type="checkbox" ng-model="showPairStats" class="showPairStats" />
-    </label>
+
+
   </div> <!-- end filterGroup -->
 
-  <div class="results" ng-repeat="thisTestPair in testPairs | filter : displayOnStatusFilter">
+  <div class="results" dir-paginate="thisTestPair in testPairs| filter : displayOnStatusFilter | itemsPerPage: 50 ">
     <div class="flex-container">
       <div class="selector">{{ thisTestPair.meta.pair.label }} - {{ thisTestPair.meta.pair.selector }}
         <button type="button" class="btn btn-default btn-sm show-diff no-print"
