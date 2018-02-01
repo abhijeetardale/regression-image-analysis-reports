@@ -1,6 +1,7 @@
 const fs = require("mz/fs");
 const path = require('path');
 const recursive = require("recursive-readdir");
+const promiseLimit = require('promise-limit');
 const compareImages = require('resemblejs/compareImages');
 const config = require('./settings.json');
 
@@ -20,7 +21,7 @@ const options = {
   }
 };
 
-
+const limit = promiseLimit(25)
 
 const sourceFolder = config.sourceDirectoryPath;
 const destinationFolder = config.testDirectoryPath;
@@ -31,17 +32,9 @@ var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
 
  main();
 
-    async function main() {
-
-    return test()
-        .then(result => {
-            console.log('process started... generating report');
-        });
-     }
-
-
-
     async function getDiff(file){
+    var startImage = new Date().getTime();
+        //console.log('image comparison started at '+startImage +' ... '+file);
 
         const fileName = path.basename(file);
         const subDir = path.dirname(file).slice(sourceFolder.length) === "" ? "" :  path.dirname(file).slice(sourceFolder.length) +path.sep;
@@ -89,6 +82,8 @@ var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
                 });
 
         }
+        //console.log('image comparison ended in ' + (new Date().getTime()-startImage) +".  ...."+file);
+        return true;
     }
 
     function createImgConfig (data, img) {
@@ -125,7 +120,12 @@ var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
         });
     }
 
-    async function test() {
+
+
+    async function main() {
+        console.log();
+        console.log('process started... image analysis inprogress');
+        var start = new Date().getTime();
 
         await fs.writeFile(configFile, arrayOfObjects, {spaces: 2}, function(err) {
           if (err) throw err
@@ -136,9 +136,14 @@ var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
            if (err) {
                throw err;
            }
-           files.forEach(async function (file) {
-             await getDiff(file);
-          });
+           Promise.all(files.map((file) => {
+             return limit(() => getDiff(file))
+           })).then(results => {
+             console.log();
+             console.log('process ended... image analysis finished');
+             console.log('Execution time : ' + Math.round((new Date().getTime()-start)/1000) +"seconds");
+             console.log();
+           });
         });
     }
 

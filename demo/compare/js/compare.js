@@ -49,7 +49,7 @@ compareApp.controller('MainCtrl', ['$scope', '$uibModal', 'clipboard', function 
     $scope.testPairs.push(new TestPair(o));
   });
 
-  $scope.statusFilter = 'failed';
+  $scope.statusFilter = 'all';
   if ($scope.passedCount === $scope.testPairs.length) {
     $scope.statusFilter = 'passed';
   }

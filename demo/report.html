@@ -27,10 +27,10 @@
   <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + alert.type"
        dismiss-on-timeout="2000" close="closeAlert($index)">{{alert.msg}}</div>
 
-  <h1>{{name}} Report</h1>
+  <div class="text-center"><h1>{{name}} Report</h1></div>
 
   <h3 class="statContainer">
-    <span class="stat">Total {{testPairs.length}} Compared. &nbsp;&nbsp;Passed <span class='label label-success'>{{passedCount}}</span>&nbsp;&nbsp; Failed <span class='label label-danger'>{{testPairs.length-passedCount}}</span></span>
+    <span class="stat">Total {{testPairs.length}} images compared. &nbsp;&nbsp;Passed <span class='label label-success'>{{passedCount}}</span>&nbsp;&nbsp; Failed <span class='label label-danger'>{{testPairs.length-passedCount}}</span></span>
   </h3>
 
 
@@ -46,12 +46,11 @@
             <input id="showPairStats" type="checkbox" ng-model="showPairStats" class="showPairStats" />
           </label>
         </td>
-        <td class="asset-heading">
-          <dir-pagination-controls></dir-pagination-controls>
-        </td>
       </tr>
     </table>
   </div>
+
+  <div class="text-center"><dir-pagination-controls></dir-pagination-controls></div>
 
 
   <div class="no-print summaryControls">
@@ -81,7 +80,7 @@
 
   </div> <!-- end filterGroup -->
 
-  <div class="results" dir-paginate="thisTestPair in testPairs| filter : displayOnStatusFilter | itemsPerPage: 50 ">
+  <div class="results" dir-paginate="thisTestPair in testPairs| filter : displayOnStatusFilter | itemsPerPage: 10 ">
     <div class="flex-container">
       <div class="selector">{{ thisTestPair.meta.pair.label }} - {{ thisTestPair.meta.pair.selector }}
         <button type="button" class="btn btn-default btn-sm show-diff no-print"
@@ -115,6 +114,8 @@
       </div>
     </div>
   </div> <!-- end results -->
+
+  <div class="text-center"><dir-pagination-controls></dir-pagination-controls></div>
 
   <div>
     <script type="text/ng-template" id="myModalContent.html">
