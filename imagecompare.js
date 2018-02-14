@@ -72,14 +72,22 @@ process.env.UV_THREADPOOL_SIZE = 10;
     }
 
     async function updateFile(arrayOfObjects) {
-        fs.writeFile(configFile, arrayOfObjects, 'utf-8', function(err) {
-            if (err) throw err
-        });
+        //await fs.writeFile(configFile, arrayOfObjects, 'utf-8', function(err) {
+            //if (err) throw err
+            fs.readFile(configFile, 'utf-8', function(err, jsonData) {
+               if (err) throw err
+               var configReport = 'report(' + arrayOfObjects + ')'
+                fs.writeFile(configFile, configReport, function (err) {
+                 if (err) console.log(err)
+                 open(reportFile);
+               });
+            });
+        //});
     }
 
     function main() {
         console.log();
-        console.log('process started... image analysis inprogress');
+        console.log('process started');
         console.log('........ image analysis inprogress ........');
         var start = new Date().getTime();
 
