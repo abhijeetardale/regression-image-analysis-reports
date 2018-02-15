@@ -1,11 +1,17 @@
-const fs = require("mz/fs");
-const path = require('path');
-const recursive = require("recursive-readdir");
-const promiseLimit = require('promise-limit');
-const compareImages = require('resemblejs/compareImages');
-const config = require('./settings.json');
+var fs = require('fs-extra');
+var path = require('path');
+var recursive = require("recursive-readdir");
+var batch = require('batchflow');
+var resemble = require('resemblejs')
+var sharp = require('sharp');
+var config = require('./settings.json');
+var open = require('open');
 
-const options = {
+
+var sourceFolder = config.sourceDirectoryPath;
+var destinationFolder = config.testDirectoryPath;
+
+var options = {
   output: {
     errorColor: {
       red: 255,
@@ -21,70 +27,21 @@ const options = {
   }
 };
 
-const limit = promiseLimit(25)
-
-const sourceFolder = config.sourceDirectoryPath;
-const destinationFolder = config.testDirectoryPath;
-const outputFolder = './demo/output/';
-const configFile = './demo/config.js';
+var reportFile = './demo/report.html';
+var outputFolder = './demo/output/';
+var configFile = './demo/config.js';
+var maxRss = 0;
 
 var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
 
+
+sharp.concurrency(10);
+sharp.cache(50);
+
+process.env.UV_THREADPOOL_SIZE = 10;
+
  main();
 
-    async function getDiff(file){
-    var startImage = new Date().getTime();
-        //console.log('image comparison started at '+startImage +' ... '+file);
-
-        const fileName = path.basename(file);
-        const subDir = path.dirname(file).slice(sourceFolder.length) === "" ? "" :  path.dirname(file).slice(sourceFolder.length) +path.sep;
-        const destination =  destinationFolder+subDir
-        const output =  outputFolder+subDir
-        // The parameters can be Node Buffers
-        // data is the same as usual with an additional getBuffer() function
-        const fileExists = fs.existsSync(destination+fileName);
-
-
-        if(fileExists) {
-
-            const data = await compareImages(
-                await fs.readFile(file),
-                await fs.readFile(destination+fileName),
-                options,
-                );
-
-
-
-            const name = fileName.replace(/\.[^/.]+$/, "");
-
-            if (!fs.existsSync(output)){
-              fs.mkdirSync(output);
-            }
-
-            await fs.writeFile(output+name+'.png', data.getBuffer());
-
-            await fs.readFile(configFile, 'utf-8', function(err, jsonData) {
-                if (err) throw err
-
-                arrayOfObjects.tests.push(createImgConfig(data, file));
-
-                updateFile(JSON.stringify(arrayOfObjects));
-                });
-
-        } else {
-
-            await fs.readFile(configFile, 'utf-8', function(err, jsonData) {
-                if (err) throw err
-
-                arrayOfObjects.tests.push(createImgConfig (null, file))
-
-                updateFile(JSON.stringify(arrayOfObjects));
-                });
-
-        }
-        //console.log('image comparison ended in ' + (new Date().getTime()-startImage) +".  ...."+file);
-        return true;
-    }
 
     function createImgConfig (data, img) {
         const fileName = path.basename(img);
@@ -115,35 +72,87 @@ var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
     }
 
     async function updateFile(arrayOfObjects) {
-        await fs.writeFile(configFile, arrayOfObjects, 'utf-8', function(err) {
-            if (err) throw err
-        });
+        //await fs.writeFile(configFile, arrayOfObjects, 'utf-8', function(err) {
+            //if (err) throw err
+            await fs.readFile(configFile, 'utf-8', function(err, jsonData) {
+               if (err) throw err
+               var configReport = 'report(' + arrayOfObjects + ')'
+                fs.writeFile(configFile, configReport, function (err) {
+                 if (err) console.log(err)
+               });
+            });
+        //});
     }
 
-
-
-    async function main() {
+    function main() {
         console.log();
-        console.log('process started... image analysis inprogress');
+        console.log('process started');
+        console.log('........ image analysis inprogress ........');
         var start = new Date().getTime();
 
-        await fs.writeFile(configFile, arrayOfObjects, {spaces: 2}, function(err) {
+        fs.writeFile(configFile, arrayOfObjects, {spaces: 2}, function(err) {
           if (err) throw err
         });
 
-         // ignore files that end in ".css" or  ".html".
+        // ignore files that end in ".css" or  ".html".
         recursive(sourceFolder, ["*.css", "*.html", "*.xml", "*.xhtml", "*.js"], function (err, files) {
-           if (err) {
-               throw err;
-           }
-           Promise.all(files.map((file) => {
-             return limit(() => getDiff(file))
-           })).then(results => {
-             console.log();
-             console.log('process ended... image analysis finished');
-             console.log('Execution time : ' + Math.round((new Date().getTime()-start)/1000) +"seconds");
-             console.log();
-           });
+          if (err) { throw err;}
+
+
+          batch(files).parallel(2).each(function(i, file, done) {
+             var startImage = new Date().getTime();
+             const fileName = path.basename(file);
+             const subDir = path.dirname(file).slice(sourceFolder.length) === "" ? "" :  path.dirname(file).slice(sourceFolder.length) + path.sep;
+             const destination =  destinationFolder+subDir
+             const output =  outputFolder+subDir
+             const destinationFileName =  destination+fileName
+             sharp(file).resize(1024, 576).toBuffer(function(err, res1){
+                      if(err){
+                         console.log(err);
+                      }
+
+                      if(fs.existsSync(destinationFileName)) {
+                        sharp(destinationFileName).resize(1024, 576).toBuffer(function(err,res2){
+                          if(err){
+                             console.log(err);
+                          }
+
+                          if (process.memoryUsage().rss > maxRss) {
+                             maxRss = process.memoryUsage().rss;
+                          }
+
+                          resemble.compare(res1, res2, options, function (err, data) {
+                              var diffImage = data.getBuffer()
+
+                              if (!fs.existsSync(output)){
+                                fs.mkdirSync(output);
+                              }
+
+                              var name = fileName.replace(/\.[^/.]+$/, "");
+
+                              fs.writeFile(output+name+'.png', diffImage, function(err) {
+                                if(err){
+                                    console.log(err);
+                                }
+                                arrayOfObjects.tests.push(createImgConfig(data, file));
+                                done(data);
+                              })
+                          })
+                        })
+
+                       } else {
+
+                         arrayOfObjects.tests.push(createImgConfig (null, file))
+                         done("");
+
+                      }
+            });
+            }).end(function(results) {
+               console.log('........ image analysis finished ........');
+               console.log('........ report generated ........');
+               updateFile(JSON.stringify(arrayOfObjects));
+               console.log("done")
+          });
         });
     }
 

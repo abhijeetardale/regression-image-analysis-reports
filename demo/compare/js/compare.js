@@ -22,6 +22,8 @@ var TestPair = function (o) {
 };
 
 compareApp.controller('MainCtrl', ['$scope', '$uibModal', 'clipboard', function ($scope, $uibModal, clipboard) {
+  $scope.currentPage = 1;
+  $scope.pageSize = 10;
   $scope.name = tests.testSuite;
   $scope.testPairs = [];
   $scope.alerts = [];
@@ -36,6 +38,7 @@ compareApp.controller('MainCtrl', ['$scope', '$uibModal', 'clipboard', function 
   }
 
   tests.tests.forEach(function (o) {
+
     if (o.status === 'pass') {
       $scope.passedCount++;
 

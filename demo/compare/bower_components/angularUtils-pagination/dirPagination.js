@@ -331,6 +331,7 @@
                     num = parseInt(num, 10);
                     paginationService.setCurrentPage(paginationId, num);
                 }
+                window.scrollTo(0, 0);
             };
 
             /**
@@ -392,6 +393,8 @@
                     scope.range.upper = Math.min(currentPage * itemsPerPage, totalItems);
                     scope.range.total = totalItems;
                 }
+
+            window.location.hash = '#top';
             }
             function isValidPageNumber(num) {
                 return (numberRegex.test(num) && (0 < num && num <= scope.pagination.last));

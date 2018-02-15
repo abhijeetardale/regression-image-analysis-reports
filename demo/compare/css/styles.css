@@ -39,7 +39,7 @@ th{text-align: left;background: #ddd;padding: 10px;white-space: nowrap;}
 .filterGroup select {display: inline-block;width: auto;}
 
 .results {
-  margin-bottom: 90px;
+  margin-bottom: 10px;
   break-inside: avoid;
   border-top: #999 solid 1px;
 }
