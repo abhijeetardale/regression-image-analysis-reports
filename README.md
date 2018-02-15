@@ -16,10 +16,6 @@ It is recommeneded to install Node using Node Version Manager
 
 https://github.com/creationix/nvm
 
-On Node, Resemble uses the `canvas` package instead of the native canvas support in the browser. To prevent browser users from being forced into installing Canvas, it's included as a peer dependency which means you have to install it alongside Resemble.
-
-Canvas relies on some native image manipulation libraries to be install on the system. Please read the [Canvas installation instructions](https://www.npmjs.com/package/canvas) for OSX/Windows/Linux.
-
 *Example commands for installation on Ubuntu*
 
 ``` bash
@@ -33,9 +29,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source ~/.bashrc
 
-sudo apt-get install libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++
-npm install canvas
-npm install canvas-prebuilt
 ```
 
 ### Prepare reference and test image to compare
