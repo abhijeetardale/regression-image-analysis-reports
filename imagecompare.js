@@ -74,12 +74,11 @@ process.env.UV_THREADPOOL_SIZE = 10;
     async function updateFile(arrayOfObjects) {
         //await fs.writeFile(configFile, arrayOfObjects, 'utf-8', function(err) {
             //if (err) throw err
-            fs.readFile(configFile, 'utf-8', function(err, jsonData) {
+            await fs.readFile(configFile, 'utf-8', function(err, jsonData) {
                if (err) throw err
                var configReport = 'report(' + arrayOfObjects + ')'
                 fs.writeFile(configFile, configReport, function (err) {
                  if (err) console.log(err)
-                 open(reportFile);
                });
             });
         //});
