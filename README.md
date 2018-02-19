@@ -12,7 +12,7 @@ This project depends upon the resemblejs which does analyse and compare images w
 
 ### Install node
 
-It is recommeneded to install Node using Node Version Manager
+It is recommended to install Node using Node Version Manager
 
 https://github.com/creationix/nvm
 
@@ -33,14 +33,14 @@ source ~/.bashrc
 
 ### Prepare reference and test image to compare
 
-## Step 1 - clone the project and update config file for source anbd test images directory
+## Step 1 - clone the project and update config file for source and test images directory
 ```$ git clone https://github.com/abhijeetardale/regression-image-analysis-reports```
 
 ```$ cd regression-image-analysis-reports```
 
-update config file (settings.json) for sourceDirectoryPath and testDirectoryPath and both should be absolue path from root directory.
+update config file (settings.json) for sourceDirectoryPath and testDirectoryPath and both should be absolute path from root directory.
 
-## Step 2 - Install node dependancies
+## Step 2 - Install node dependencies
 
 ```$ npm install```
 
@@ -52,8 +52,8 @@ update config file (settings.json) for sourceDirectoryPath and testDirectoryPath
 
 ```$ node report```
 
-report will be genrated upder ./demo/report.html. You can open it in your default browser.
+report will be generated under ./demo/report.html. You can open it in your default browser.
 
 ## Additional
 
-To check the demo file comparision under .${project}/demo, please update the config file(settings.json) for sourceDirectoryPath and testDirectoryPath  and both should be absolue path from root directory.
+To check the demo file comparison under .${project}/demo, please update the config file(settings.json) for sourceDirectoryPath and testDirectoryPath  and both should be absolute path from root directory.
