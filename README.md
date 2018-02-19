@@ -48,7 +48,7 @@ update config file (settings.json) for sourceDirectoryPath and testDirectoryPath
 
 ```$ node imagecompare```
 
-## Step 3 - Genearte Report 
+## Step 3 - Generate Report 
 
 ```$ node report```
 
