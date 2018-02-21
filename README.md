@@ -20,6 +20,9 @@ https://github.com/creationix/nvm
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+above steps are working correctely for ubuntu-14-04 but if you are facing any issue with ubuntu-16-04 for node installation please follow below link
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
+
 ##Install nvm##
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
