@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Image analysis and Reports",
   "main": "imagecompare.js",
+  "scripts": {
+    "start": "node src/imagecompare.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/abhijeetardale/regression-image-analysis-reports"
