@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Image analysis and Reports",
   "main": "imagecompare.js",
+  "scripts": {
+    "start": "node src/imagecompare.js",
+    "test": "node src/report.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/abhijeetardale/regression-image-analysis-reports"
@@ -23,6 +27,7 @@
   "homepage": "https://github.com/abhijeetardale/regression-image-analysis-reports",
   "dependencies": {
     "batchflow": "^0.4.0",
+    "bluebird": "^3.5.1",
     "from2-string": "^1.1.0",
     "fs-extra": "^5.0.0",
     "jsonfile": "^4.0.0",
