@@ -1,4 +1,4 @@
 {
-  "sourceDirectoryPath": "/home/user/Applications/gitrepo/Test/Resemble.js/tools/source/",
-  "testDirectoryPath": "/home/user/Applications/gitrepo/Test/Resemble.js/tools/destination/"
+  "sourceDirectoryPath": "/home/user/Applications/gitrepo/Test/Resemble.js/tools/ScreenshotsBefore/",
+  "testDirectoryPath": "/home/user/Applications/gitrepo/Test/Resemble.js/tools/ScreenshotsAfter/"
 }

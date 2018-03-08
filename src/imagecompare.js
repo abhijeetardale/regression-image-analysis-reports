@@ -3,12 +3,12 @@ var Promise = require('bluebird');
 var recursive = require("recursive-readdir");
 var config = require('./settings.json');
 var processBatch = require('./utils/process-batch');
-var report = require('./report');
+var reportFile = './tools/report.html';
 
 var sourceFolder = config.sourceDirectoryPath;
 
 var outputFolder = './tools/output/';
-var configFile = './tools/config.js';
+var configFile = './results/config.js';
 
 var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
 
@@ -18,11 +18,15 @@ var updateConfigFile = function() {
        console.log();
        console.log('process started');
        console.log('........ image analysis inprogress ........');
-
-       fs.writeFile(configFile, arrayOfObjects, {spaces: 2}, function(err) {
-         if (err) throw err
-       });
-       resolve("success");
+       fs.emptyDir('./results').then(() => {
+           fs.copy('./tools/config.js', configFile, function (err) {
+              if (err) return console.error(err)
+              fs.ensureDir('./results/output/', err => {
+                  if (err) throw err
+                  resolve("success");
+              })
+           });
+       })
     })
 }
 
@@ -39,7 +43,6 @@ var processFiles = function() {
 var updateReport = function() {
 
     return new Promise(function(resolve, reject) {
-        report(resolve)
         console.log('process completed');
     })
 }

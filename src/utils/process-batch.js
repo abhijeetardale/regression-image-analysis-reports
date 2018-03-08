@@ -13,9 +13,9 @@ var destinationFolder = config.testDirectoryPath;
 var options = {
   output: {
     errorColor: {
-      red: 255,
-      green: 0,
-      blue: 0,
+      red: 240,
+      green: 70,
+      blue: 70,
       brightness: 255
     },
     errorType: 'movement',
@@ -26,8 +26,7 @@ var options = {
   }
 };
 
-var outputFolder = './tools/output/';
-var configFile = './tools/config.js';
+var outputFolder = './results/output/';
 var maxRss = 0;
 
 var arrayOfObjects = {'testSuite': 'Visual Regression Test', 'tests': [] }
@@ -43,20 +42,20 @@ var jsonConfig = require('./update-config')
 
 module.exports = function processBatch(files, resolve) {
 
-    batch(files).parallel(2).each(function(index, file, done) {
+    batch(files).parallel(5).each(function(index, file, done) {
         var startImage = new Date().getTime();
         const fileName = path.basename(file);
         const subDir = path.dirname(file).slice(sourceFolder.length) === "" ? "" :  path.dirname(file).slice(sourceFolder.length) + path.sep;
         const destination =  destinationFolder + subDir
         const output =  outputFolder +  subDir
         const destinationFileName =  destination + fileName
-        sharp(file).resize(1024, 576).toBuffer(function(err, res1){
+        sharp(file).resize(1080).toBuffer(function(err, res1){
             if(err){
              console.log(err);
             }
 
             if(fs.existsSync(destinationFileName)) {
-            sharp(destinationFileName).resize(1024, 576).toBuffer(function(err,res2){
+            sharp(destinationFileName).resize(1080).toBuffer(function(err,res2){
               if(err){
                  console.log(err);
               }

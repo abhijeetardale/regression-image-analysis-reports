@@ -1,6 +1,6 @@
 var path = require('path')
 var fs = require('fs-extra');
-var configFile = './tools/config.js';
+var configFile = './results/config.js';
 
 module.exports = async function updateFile(arrayOfObjects, resolve) {
     await fs.readFile(configFile, 'utf-8', function(err, jsonData) {

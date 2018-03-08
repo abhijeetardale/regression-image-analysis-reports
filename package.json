@@ -4,7 +4,8 @@
   "description": "Image analysis and Reports",
   "main": "imagecompare.js",
   "scripts": {
-    "start": "node src/imagecompare.js"
+    "start": "node src/imagecompare.js",
+    "test": "node src/report.js"
   },
   "repository": {
     "type": "git",
