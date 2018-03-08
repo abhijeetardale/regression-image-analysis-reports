@@ -42,17 +42,17 @@ update config file (settings.json) for sourceDirectoryPath and testDirectoryPath
 
 ## Step 2 - Install node dependencies
 
-```$ npm install```
+```$ npm install --save```
 
 ## Step 3 - Run analysis 
 
-```$ node imagecompare```
+```$ npm start```
 
 ## Step 3 - Generate Report 
 
-```$ node report```
+```$ npm test```
 
-report will be generated under ./demo/report.html. You can open it in your default browser.
+report will be generated under ./results/report.html, with all required dependencies and supporting images. This command will open the report in default browser.
 
 ## Additional
 
