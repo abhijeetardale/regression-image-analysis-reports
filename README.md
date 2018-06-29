@@ -2,7 +2,7 @@ imagecompare.js
 ==========
 This will compare the images from source and destination directory considering both will have same directory structure and file names. To use this project, you will need to have a set of image pairs to compare. Each pair of images should be named the same then it will check the source file with same name at relevant destination directory path and create result difference image in ./demo/output directory. If the destination directory don’t have the respective file present it will not return the difference image.
 
-This project depends upon the resemblejs which does analyse and compare images with Javascript and HTML5. [More info & Resemble.js Demo](http://huddle.github.com/Resemble.js/). Compatible with Node.js.
+This project depends upon the resemblejs which does analyse and compare images with Javascript and HTML5. [More info & Resemble.js Demo](https://huddleeng.github.io/Resemble.js/). Compatible with Node.js.
 
 ![Two image diff examples side-by-side, one pink, one yellow.](https://raw.github.com/Huddle/Resemble.js/master/demoassets/readmeimage.jpg "Visual image comparison")
 
