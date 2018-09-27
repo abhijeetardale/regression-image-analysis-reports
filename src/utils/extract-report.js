@@ -1,7 +1,7 @@
 const fs = require('fs')
 const configFile = './results/config.js';
 const reportFile = './results/report.html';
-const open = require("open");
+const opener = require("opener");
 
 module.exports = function generateReport() {
     fs.readFile(configFile, 'utf-8', function(err, jsonData) {
@@ -14,6 +14,6 @@ module.exports = function generateReport() {
               if (err) console.log(err)
             });
         }
-        open(reportFile);
+        opener(reportFile);
     });
 }

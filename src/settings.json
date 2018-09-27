@@ -1,4 +1,4 @@
 {
-  "sourceDirectoryPath": "/home/user/Applications/gitrepo/Test/Resemble.js/tools/ScreenshotsBefore/",
-  "testDirectoryPath": "/home/user/Applications/gitrepo/Test/Resemble.js/tools/ScreenshotsAfter/"
+  "sourceDirectoryPath": "/home/user/Applications/gitrepo/visual-regression-report/tools/ScreenshotsBefore/",
+  "testDirectoryPath": "/home/user/Applications/gitrepo/visual-regression-report/tools/ScreenshotsAfter/"
 }
