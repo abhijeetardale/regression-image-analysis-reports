@@ -29,6 +29,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source ~/.bashrc
 
+
+if you are getting below error :
+Error: /lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_1.2.9' not found (required by /home
+
+please follow below link
+https://github.com/AllToMP3/alltomp3-app/issues/25#issuecomment-371582608
+
+You can download zlib version 1.2.9 and uncompress it.
+
+cd zlib-1.2.9
+./configure
+make
+sudo make install
+
 ```
 
 ### Prepare reference and test image to compare
