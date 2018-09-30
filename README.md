@@ -24,10 +24,30 @@ above steps are working correctely for ubuntu-14-04 but if you are facing any is
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
 
 ##Install nvm##
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+or Wget:
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+The script clones the nvm repository to ~/.nvm and adds the source line to your profile (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
+
+Note: If the environment variable $XDG_CONFIG_HOME is present, it will place the nvm files there.
+
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-source ~/.bashrc
+Note: You can add --no-use to the end of the above script (...nvm.sh --no-use) to postpone using nvm until you manually use it.
+
+if you are getting below error :
+Error: /lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_1.2.9' not found (required by /home
+
+please follow below link
+https://github.com/AllToMP3/alltomp3-app/issues/25#issuecomment-371582608
+
+You can download zlib version 1.2.9 and uncompress it.
+
+cd zlib-1.2.9
+./configure
+make
+sudo make install
 
 ```
 
